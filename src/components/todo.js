@@ -9,17 +9,24 @@ const Todo = () => {
   const [newTask, setNewTask] = useState(""); // State for storing the value of the new task input
   const [editingIndex, setEditingIndex] = useState(null);
   const [editingTask, setEditingTask] = useState("");
+  const [error, setError] = useState("");
 
   const handleInputChange = (e) => {
     setNewTask(e.target.value);
   };
   const handleAdd = () => {
-    if (newTask.trim() !== "") {
-      setTasks((t) => [...t, newTask]);
-      setNewTask("");
-    } else if (newTask === "") {
-      alert("Enter some Todo Task");
+    const trimmedTask = newTask.trim();
+    if (trimmedTask === "") {
+      setError("Task cannot be empty");
+      return;
     }
+    if (tasks.includes(trimmedTask)) {
+      setError("Task already exists");
+      return;
+    }
+    setTasks((t) => [...t, trimmedTask]);
+    setNewTask("");
+    setError("");
   };
 
   const handleDelete = (index) => {
@@ -68,7 +75,7 @@ const Todo = () => {
       <div className="inputAddBtn">
         <input
           type="text"
-          placeholder="Enter Todo"
+          placeholder="Enter Task"
           value={newTask}
           onChange={handleInputChange}
           autoFocus
@@ -77,6 +84,7 @@ const Todo = () => {
           <IoAdd className="icons" />
         </button>
       </div>
+      {error && <p className="error">{error}</p>}
       <ul>
         {tasks.map((task, index) => (
           <li key={index}>

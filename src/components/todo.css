@@ -14,10 +14,13 @@ F44336 red delete
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 16px;
 }
+html,
 body {
-  background-color: #003285;
+  height: 100%;
+  margin: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 button {
   background-color: lightblue;
@@ -84,6 +87,8 @@ ul li span {
 }
 .taskButtonContainer span {
   color: #2a629a;
+  text-transform: capitalize;
+  padding-left: 12px;
 }
 .inputAddBtn {
   width: 100%;
@@ -128,4 +133,10 @@ ul li span {
 .icons {
   font-size: 22px;
   font-weight: bold;
+}
+.error {
+  padding: 0;
+  margin: 0;
+  padding-left: 20px;
+  color: #f44336;
 }

@@ -71,7 +71,10 @@ const Todo = () => {
   };
   return (
     <div className="todoContainer">
-      <h2 className="centerAlign">Add Todo List</h2>
+      <div className="headingContainer">
+        <img src="/todolist.png" alt="todolist" />
+        <h2 className="centerAlign">Add Todo List</h2>
+      </div>
       <div className="inputAddBtn">
         <input
           type="text"

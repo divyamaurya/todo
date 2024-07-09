@@ -22,6 +22,9 @@ body {
   justify-content: center;
   align-items: center;
 }
+body {
+  background: linear-gradient(135deg, #003285, #2a629a, #ff7f3e, #ffda78);
+}
 button {
   background-color: lightblue;
   padding: 4px 16px;
@@ -34,15 +37,17 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.4s;
 }
 button:hover {
   background-color: transparent;
   cursor: pointer;
   color: #333333;
+  transform: scale(1.2);
 }
 input {
   background-color: #ff7f3e;
-  color: #2a629a;
+  color: #efefef;
   border: none;
   padding: 10px;
   padding-left: 20px;
@@ -56,7 +61,7 @@ input::placeholder {
 }
 input:focus {
   border-color: #4caf50;
-  box-shadow: 0px 0px 5px #ff7f3e;
+  box-shadow: 0px 1px 5px #ff7f3e;
   background-color: transparent;
 }
 ul {
@@ -71,10 +76,11 @@ ul li span {
   font-size: 20px;
 }
 .todoContainer {
-  background-color: #ffda78;
-  width: 600px;
+  background-color: #000000;
+  width: 750px;
   padding: 15px;
   border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.19);
 }
 .taskButtonContainer {
   width: 100%;
@@ -86,7 +92,7 @@ ul li span {
   border-radius: 25px;
 }
 .taskButtonContainer span {
-  color: #2a629a;
+  color: #efefef;
   text-transform: capitalize;
   padding-left: 12px;
 }
@@ -95,10 +101,16 @@ ul li span {
   display: flex;
   justify-content: space-between;
 }
+.headingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .centerAlign {
-  color: #2a629a;
+  color: #efefef;
   font-size: 36px;
   text-align: center;
+  margin-left: 10px;
 }
 .buttonContainer {
   display: flex;

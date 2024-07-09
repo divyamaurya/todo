@@ -92,7 +92,7 @@ const Todo = () => {
         {tasks.map((task, index) => (
           <li key={index}>
             {editingIndex === index ? (
-              <>
+              <div className="inputAddBtn">
                 <input
                   type="text"
                   value={editingTask}
@@ -106,7 +106,7 @@ const Todo = () => {
                 >
                   <CiSaveDown2 className="icons" />
                 </button>
-              </>
+              </div>
             ) : (
               <div className="taskButtonContainer">
                 <span>{task}</span>

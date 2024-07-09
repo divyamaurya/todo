@@ -17,6 +17,8 @@ const Todo = () => {
     if (newTask.trim() !== "") {
       setTasks((t) => [...t, newTask]);
       setNewTask("");
+    } else if (newTask === "") {
+      alert("Enter some Todo Task");
     }
   };
 

@@ -88,63 +88,67 @@ const Todo = () => {
         </button>
       </div>
       {error && <p className="error">{error}</p>}
-      <ul>
-        {tasks.map((task, index) => (
-          <li key={index}>
-            {editingIndex === index ? (
-              <div className="inputAddBtn">
-                <input
-                  type="text"
-                  value={editingTask}
-                  onChange={handleEditChange}
-                  autoFocus
-                />
-                <button
-                  className="saveButton"
-                  title="Save Task"
-                  onClick={() => handleEditSubmit(index)}
-                >
-                  <CiSaveDown2 className="icons" />
-                </button>
-              </div>
-            ) : (
-              <div className="taskButtonContainer">
-                <span>{task}</span>
-                <div className="buttonContainer">
+      {tasks.length === 0 ? (
+        <h1 className="noData">No Data</h1>
+      ) : (
+        <ul>
+          {tasks.map((task, index) => (
+            <li key={index}>
+              {editingIndex === index ? (
+                <div className="inputAddBtn">
+                  <input
+                    type="text"
+                    value={editingTask}
+                    onChange={handleEditChange}
+                    autoFocus
+                  />
                   <button
-                    className="deleteButton"
-                    title="Delete Task"
-                    onClick={() => handleDelete(index)}
+                    className="saveButton"
+                    title="Save Task"
+                    onClick={() => handleEditSubmit(index)}
                   >
-                    <MdDeleteForever className="icons" />
-                  </button>
-                  <button
-                    className="editButton"
-                    title="Edit Task"
-                    onClick={() => handleEditClick(index)}
-                  >
-                    <CiEdit className="icons" />
-                  </button>
-                  <button
-                    className="moveButton"
-                    title="Move Task Up"
-                    onClick={() => moveTaskUp(index)}
-                  >
-                    <MdMoveUp className="icons" />
-                  </button>
-                  <button
-                    className="moveButton"
-                    title="Move Task Down"
-                    onClick={() => moveTaskDown(index)}
-                  >
-                    <MdMoveDown className="icons" />
+                    <CiSaveDown2 className="icons" />
                   </button>
                 </div>
-              </div>
-            )}
-          </li>
-        ))}
-      </ul>
+              ) : (
+                <div className="taskButtonContainer">
+                  <span>{task}</span>
+                  <div className="buttonContainer">
+                    <button
+                      className="deleteButton"
+                      title="Delete Task"
+                      onClick={() => handleDelete(index)}
+                    >
+                      <MdDeleteForever className="icons" />
+                    </button>
+                    <button
+                      className="editButton"
+                      title="Edit Task"
+                      onClick={() => handleEditClick(index)}
+                    >
+                      <CiEdit className="icons" />
+                    </button>
+                    <button
+                      className="moveButton"
+                      title="Move Task Up"
+                      onClick={() => moveTaskUp(index)}
+                    >
+                      <MdMoveUp className="icons" />
+                    </button>
+                    <button
+                      className="moveButton"
+                      title="Move Task Down"
+                      onClick={() => moveTaskDown(index)}
+                    >
+                      <MdMoveDown className="icons" />
+                    </button>
+                  </div>
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

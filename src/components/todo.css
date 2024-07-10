@@ -152,3 +152,9 @@ ul li span {
   padding-left: 20px;
   color: #f44336;
 }
+.noData {
+  color: red;
+  font-weight: 900;
+  font-size: 40px;
+  text-align: center;
+}
